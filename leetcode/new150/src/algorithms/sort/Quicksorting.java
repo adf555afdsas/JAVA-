@@ -15,7 +15,8 @@ public class Quicksorting {
         int end = r;
         if (begin >= end) return;
         while (begin < end) {
-            // 从右往左找到第一个小于key的数
+            // 先从右往左找到第一个小于key的数，因为和key交换的数必须比key小；
+            // 如果先从左找，begin会先占领比key大的数，如果end在这个位置上就会导致循环跳出，此时与key交换，key的左边就不比key小
             while (begin < end && nums[end]>=nums[key]) end--;
 
             // 从左往右找第一个大于key数
